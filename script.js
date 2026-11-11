@@ -1,7 +1,7 @@
 
 const CREDENCIALES = {
     usuario: "JHUSARA",
-    contrasena: "MI_PRINCESA"
+    contrasena: "MIPRINCESA"
 };
 /* =========================================
    1. CONFIGURACIÓN DE LAS SORPRESAS
