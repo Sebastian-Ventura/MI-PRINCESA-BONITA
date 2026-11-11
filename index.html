@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#071c3b">
+    <title>Para MI PRINCESA HERMOSAA ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="audio/audio.mp3" type="audio/mpeg">
+        Tu navegador no admite audio.
+    </audio>
+    <header class="main-header">
+        <div class="logo">MI PRINCESA HERMOSAA <span>♥</span></div>
+    </header>
+    <main>
+        <!-- PANTALLA 0: LOGIN -->
+        <section id="login" class="screen active">
+            <div class="login-background">
+                <span class="login-heart heart-1">♥</span>
+                <span class="login-heart heart-2">♥</span>
+                <span class="login-heart heart-3">♥</span>
+                <span class="login-star star-1">✦</span>
+                <span class="login-star star-2">✧</span>
+                <span class="login-star star-3">✦</span>
+            </div>
+            <div class="login-content">
+                <div class="login-icon">💗</div>
+                <span class="login-eyebrow">UN LUGAR ESPECIAL TE ESPERA</span>
+                <h1>Bienvenida, <span>MI JHUSARITAA BONITA</span></h1>
+                <p class="login-description">
+                    He preparado un pequeño mundo de sorpresas
+                    exclusivamente para ti.
+                </p>
+                <div class="login-form">
+                    <label for="loginUsername">Tu nombre</label>
+                    <div class="login-input-group">
+                        <span>👑</span>
+                        <input
+                            type="text"
+                            id="loginUsername"
+                            placeholder="Escribe tu nombre"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                    <label for="loginPassword">Tu contraseña secreta</label>
+                    <div class="login-input-group">
+                        <span>🔒</span>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Escribe tu contraseña"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button type="button" id="togglePassword" class="password-toggle" aria-label="Mostrar contraseña">👁</button>
+                    </div>
+                    <p id="loginError" class="login-error hidden">
+                        ¡Ups! Esas no son las palabras mágicas. ❤️
+                    </p>
+                    <button id="loginButton" class="login-button">
+                        Entrar a mi mundo ❤️
+                    </button>
+                </div>
+                <p class="login-footer">Solo hay una princesa que puede entrar aquí. ✨</p>
+            </div>
+        </section>
+        <!-- PANTALLA 1: BIENVENIDA -->
+        <section id="welcome" class="screen">
+            <div class="welcome-background">
+                <div class="bubble bubble-1"></div>
+                <div class="bubble bubble-2"></div>
+                <div class="bubble bubble-3"></div>
+                <div class="bubble bubble-4"></div>
+                <div class="bubble bubble-5"></div>
+            </div>
+            <div class="welcome-content">
+                <p class="small-title">UNA SORPRESA ESPECIAL PARA</p>
+                <h1>Mi princesa <span>JHUSARA</span></h1>
+                <img src="images/img1.jpg" alt="Una sorpresa para JHUSARA" class="welcome-image">
+                <p class="welcome-description">
+                    He preparado algo especial para ti.
+                    Hay premios, pequeños desafíos y algunas
+                    sorpresas que quiero compartir contigo.
+                </p>
+                <p class="welcome-question">¿Estás lista para comenzar?</p>
+                <button id="startButton" class="primary-button">
+                    ¡Comenzar aventura! ✨
+                </button>
+            </div>
+        </section>
+        <!-- PANTALLA 2: SELECCIÓN DE SORPRESAS -->
+        <section id="selection" class="screen">
+            <div class="selection-content">
+                <div class="section-heading">
+                    <span class="eyebrow">TU PEQUEÑA AVENTURA</span>
+                    <h2>Elige una sorpresa</h2>
+                    <p>
+                        Escoge cualquiera de las ocho tarjetas.
+                        Cada una esconde algo especial para ti.
+                    </p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-information">
+                        <span>Sorpresas descubiertas</span>
+                        <strong id="progressText">0 / 8</strong>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+                <div id="cardsContainer" class="cards-container"></div>
+                <p id="completionMessage" class="completion-message">
+                    ¡Has descubierto todas las sorpresas!
+                </p>
+            </div>
+        </section>
+        <!-- PANTALLA 3: REVELACIÓN -->
+        <section id="reveal" class="screen">
+            <div id="boxScene" class="box-scene">
+                <span class="box-eyebrow">UNA SORPRESA PARA MI PRINCESA</span>
+                <h2 id="boxMessage">¿Qué habrá dentro?</h2>
+                <p class="box-subtitle">Tengo algo especial preparado para ti...</p>
+                <div id="giftBox" class="gift-box">
+                    <div class="box-glow"></div>
+                    <div class="box-lid">
+                        <div class="lid-ribbon"></div>
+                        <div class="lid-bow">🎀</div>
+                    </div>
+                    <div class="box-body">
+                        <div class="box-ribbon"></div>
+                        <div class="box-front-heart">♥</div>
+                    </div>
+                    <div class="box-light"></div>
+                </div>
+                <p id="boxHint" class="box-hint">Prepárate para descubrirlo...</p>
+            </div>
+            <div id="revealContent" class="reveal-content hidden">
+                <span id="revealWorld" class="world-label"></span>
+                <span id="revealType" class="surprise-type"></span>
+                <h2 id="revealTitle"></h2>
+                <img id="revealImage" src="" alt="Sorpresa para JHUSARA" class="reveal-image">
+                <p id="revealDescription"></p>
+                <p id="revealExtra" class="reveal-extra"></p>
+                <button id="backButton" class="primary-button">
+                    Volver a las sorpresas ❤️
+                </button>
+            </div>
+        </section>
+        <!-- PANTALLA 4: GRAN FINAL -->
+        <section id="final" class="screen">
+            <div class="final-background">
+                <div class="final-particle particle-1">♥</div>
+                <div class="final-particle particle-2">✦</div>
+                <div class="final-particle particle-3">🌸</div>
+                <div class="final-particle particle-4">♥</div>
+            </div>
+            <div class="final-content">
+                <span class="final-eyebrow">UNA ÚLTIMA SORPRESA</span>
+                <h1>Mi querida JHUSARA</h1>
+                <p class="final-message">
+                    Has llegado al final de esta pequeña aventura,
+                    pero todavía queda algo que quiero entregarte.
+                </p>
+                <img src="images/img10.jpg" alt="Nuestra sorpresa final" class="final-image">
+                <div class="rotating-heart">❤️</div>
+                <h2>Un regalo para ti</h2>
+                <p class="gift-description">
+                    Porque mereces momentos bonitos,
+                    sonrisas y muchas razones para ser feliz.
+                </p>
+                <button id="giftButton" class="gift-button">
+                    Abrir mi último regalo 🎁
+                </button>
+                <div id="giftMessage" class="gift-message hidden">
+                    <h2>¡SORPRESA, MI PRINCESA! ❤️</h2>
+                    <p>
+                        Este regalo es solo una pequeña muestra
+                        de todo el cariño que quiero darte.
+                    </p>
+                    <p class="signature">Con mucho cariño, para ti. ❤️</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        Hecho con mucho cariño para JHUSARA ♥
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1210 @@
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+:root {
+    --blue-dark: #071c3b;
+    --blue: #0879c9;
+    --blue-light: #42c5ef;
+    --yellow: #ffd447;
+    --pink: #ff8db5;
+    --red: #e83257;
+    --white: #ffffff;
+    --gold: #ffda79;
+    --text-dark: #182b49;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--blue-dark);
+    color: var(--white);
+    overflow-x: hidden;
+}
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+.hidden {
+    display: none !important;
+}
+/* =========================================
+   ENCABEZADO
+========================================= */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+.logo span {
+    color: var(--pink);
+}
+.music-button {
+    padding: 11px 20px;
+    border: 1px solid #ffffff70;
+    border-radius: 30px;
+    color: white;
+    background: #ffffff20;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+.music-button:hover {
+    background: #ffffff40;
+    transform: scale(1.05);
+}
+/* =========================================
+   PANTALLAS
+========================================= */
+.screen {
+    display: none;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding: 110px 20px 80px;
+    overflow: hidden;
+}
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: appear 0.7s ease;
+}
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================================
+   BIENVENIDA - FONDO DE BIKINI
+========================================= */
+#welcome {
+    background:
+        radial-gradient(circle at 15% 20%, #42c5ef 0%, transparent 30%),
+        radial-gradient(circle at 85% 80%, #0879c9 0%, transparent 35%),
+        linear-gradient(140deg, #063b76, #009cce, #063b76);
+}
+.welcome-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.bubble {
+    position: absolute;
+    border: 2px solid #ffffff55;
+    border-radius: 50%;
+    background: #ffffff15;
+    animation: float 7s infinite ease-in-out;
+}
+.bubble-1 {
+    width: 70px;
+    height: 70px;
+    top: 20%;
+    left: 10%;
+}
+.bubble-2 {
+    width: 35px;
+    height: 35px;
+    top: 65%;
+    left: 18%;
+    animation-delay: 1s;
+}
+.bubble-3 {
+    width: 100px;
+    height: 100px;
+    top: 25%;
+    right: 10%;
+    animation-delay: 2s;
+}
+.bubble-4 {
+    width: 45px;
+    height: 45px;
+    bottom: 15%;
+    right: 25%;
+    animation-delay: 3s;
+}
+.bubble-5 {
+    width: 25px;
+    height: 25px;
+    top: 12%;
+    right: 35%;
+    animation-delay: 1.5s;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+.small-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--yellow);
+    margin-bottom: 15px;
+}
+.welcome-content h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin-bottom: 25px;
+    text-shadow: 0 5px 20px #001c4b70;
+}
+.welcome-content h1 span {
+    display: block;
+    color: var(--yellow);
+}
+.welcome-image {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 4px solid #ffffffaa;
+    box-shadow: 0 10px 35px #0006;
+    margin-bottom: 25px;
+    animation: float 4s infinite ease-in-out;
+}
+.welcome-description {
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 17px;
+    color: #effaff;
+}
+.welcome-question {
+    margin: 25px 0;
+    color: var(--yellow);
+    font-size: 19px;
+    font-weight: 700;
+}
+/* =========================================
+   BOTONES GENERALES
+========================================= */
+.primary-button {
+    border: none;
+    border-radius: 50px;
+    padding: 16px 35px;
+    background: linear-gradient(135deg, #ffe66d, #ffbd35);
+    color: #573800;
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: 0 8px 25px #0003;
+    transition: 0.3s;
+}
+.primary-button:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 30px #0005;
+}
+/* =========================================
+   SELECCIÓN DE TARJETAS
+========================================= */
+#selection {
+    background:
+        radial-gradient(circle at top left, #164d84, transparent 40%),
+        linear-gradient(135deg, #071c3b, #103c70);
+}
+.selection-content {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+}
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+.eyebrow {
+    color: var(--yellow);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 800;
+}
+.section-heading h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 12px 0;
+}
+.section-heading p {
+    color: #c8dff5;
+    line-height: 1.7;
+}
+.progress-container {
+    max-width: 600px;
+    margin: 0 auto 35px;
+}
+.progress-information {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #e3f3ff;
+}
+.progress-information strong {
+    color: var(--yellow);
+}
+.progress-track {
+    width: 100%;
+    height: 12px;
+    border-radius: 20px;
+    background: #ffffff25;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ffe66d, #ff8c42);
+    transition: width 0.5s ease;
+}
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.surprise-card {
+    position: relative;
+    min-height: 230px;
+    padding: 15px;
+    border: 2px solid #ffffff50;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #ffffff20, #ffffff08);
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px #0003;
+    transition: 0.3s;
+    overflow: hidden;
+}
+.surprise-card:hover:not(:disabled) {
+    transform: translateY(-9px) rotate(-1deg);
+    border-color: var(--yellow);
+    background: #ffffff30;
+}
+.surprise-card:disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+.surprise-card.locked {
+    opacity: 0.48;
+    filter: grayscale(0.65);
+    border-color: #ffffff30;
+    background: linear-gradient(145deg, #182d4b, #101d34);
+}
+.surprise-card.locked .card-label {
+    color: #d5ddec;
+}
+.surprise-card .number {
+    display: block;
+    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+.card-image {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin: 8px auto;
+    display: block;
+}
+.surprise-card:hover:not(:disabled) .card-image {
+    transform: scale(1.05);
+}
+.surprise-card .card-label {
+    display: block;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+#cooldownMessage {
+    line-height: 1.6;
+    box-shadow: 0 5px 20px #0002;
+}
+.completion-message {
+    display: none;
+    text-align: center;
+    margin-top: 30px;
+    color: var(--yellow);
+    font-size: 20px;
+    font-weight: 900;
+}
+.completion-message.visible {
+    display: block;
+}
+/* =========================================
+   REVELACIÓN - PRESENTACIÓN MEJORADA
+========================================= */
+#reveal {
+    background:
+        radial-gradient(circle at 50% 0%, #42c5ef55, transparent 45%),
+        linear-gradient(135deg, #063b76, #0879c9);
+}
+#reveal.inuyasha {
+    background:
+        radial-gradient(circle at top, #a64d79 0%, transparent 48%),
+        radial-gradient(circle at bottom right, #632c72 0%, transparent 40%),
+        linear-gradient(135deg, #190d2e, #451a3e, #130b27);
+}
+#reveal.bikini {
+    background:
+        radial-gradient(circle at top, #6be0f5 0%, transparent 45%),
+        radial-gradient(circle at bottom right, #0879c9 0%, transparent 45%),
+        linear-gradient(135deg, #00558f, #009bc9);
+}
+#reveal.screen.active {
+    align-items: flex-start;
+}
+#reveal .reveal-content {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(22px, 4vw, 38px);
+    text-align: center;
+    border: 1px solid #ffffff65;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ffffff24, #ffffff0c);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 60px #00152f45, inset 0 1px 0 #ffffff35;
+    animation: surpriseArrival 0.8s ease both;
+}
+.world-label {
+    display: inline-block;
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0 auto 12px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #071c3b35;
+    border: 1px solid #ffffff25;
+}
+.surprise-type {
+    display: table;
+    margin: 0 auto 20px;
+    padding: 9px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffffff35, #ffffff15);
+    border: 1px solid #ffffff45;
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 18px #0002;
+}
+.reveal-content h2 {
+    max-width: 650px;
+    margin: 0 auto 22px;
+    color: #ffffff;
+    font-size: clamp(27px, 4.5vw, 40px);
+    line-height: 1.2;
+    font-weight: 900;
+    text-shadow: 0 4px 15px #00152f45;
+}
+.reveal-image {
+    width: min(340px, 100%);
+    height: 240px;
+    object-fit: contain;
+    padding: 8px;
+    border-radius: 24px;
+    margin: 0 auto 24px;
+    display: block;
+    background: linear-gradient(145deg, #ffffff, #eaf5ff);
+    border: 3px solid #ffffffaa;
+    box-shadow: 0 12px 35px #00152f45, 0 0 0 6px #ffffff15;
+}
+#revealDescription {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    border: 1px solid #ffffff35;
+    border-radius: 20px;
+    background: #061c3b35;
+    color: #f5faff;
+    font-size: 16px;
+    line-height: 1.85;
+    text-align: left;
+    white-space: pre-line;
+    box-shadow: inset 0 1px 0 #ffffff12;
+}
+.reveal-extra {
+    position: relative;
+    max-width: 620px;
+    margin: 20px auto 25px;
+    padding: 19px 22px;
+    border: 1px solid #ffda7966;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffda7925, #ff8db515);
+    color: #ffe58c;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.75;
+    text-align: center;
+    box-shadow: 0 8px 25px #00152f20;
+}
+#backButton {
+    margin: 5px auto 0;
+    min-width: 230px;
+    max-width: 100%;
+}
+/* TONALIDAD DE LOS PREMIOS Y CASTIGOS */
+#reveal.bikini .surprise-type {
+    background: linear-gradient(135deg, #ffffff35, #42c5ef35);
+}
+#reveal.inuyasha .surprise-type {
+    background: linear-gradient(135deg, #ff8db535, #ffffff15);
+}
+#reveal.inuyasha .reveal-extra {
+    border-color: #ff8db580;
+    background: linear-gradient(135deg, #ff8db525, #ffda7915);
+    color: #ffd2e2;
+}
+/* =========================================
+   GRAN FINAL
+========================================= */
+#final {
+    background:
+        radial-gradient(circle at 50% 20%, #762b50, transparent 45%),
+        linear-gradient(135deg, #180c28, #4d153c, #160b29);
+}
+.final-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.final-particle {
+    position: absolute;
+    color: #ffb5cb;
+    font-size: 30px;
+    animation: float 5s infinite ease-in-out;
+}
+.particle-1 {
+    top: 15%;
+    left: 10%;
+}
+.particle-2 {
+    top: 25%;
+    right: 15%;
+    color: var(--gold);
+}
+.particle-3 {
+    bottom: 15%;
+    left: 20%;
+}
+.particle-4 {
+    bottom: 20%;
+    right: 12%;
+}
+.final-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+.final-eyebrow {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-weight: 900;
+    font-size: 12px;
+}
+.final-content h1 {
+    font-size: clamp(35px, 6vw, 55px);
+    margin: 20px 0;
+}
+.final-message,
+.gift-description {
+    color: #f4dfea;
+    line-height: 1.8;
+    font-size: 17px;
+}
+.final-image {
+    width: min(320px, 85%);
+    height: 240px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 3px solid #ffb6c9;
+    box-shadow: 0 0 35px #ff315b66;
+    margin: 20px auto;
+    display: block;
+}
+.rotating-heart {
+    font-size: 75px;
+    margin: 15px auto;
+    animation: heartbeat 1.4s infinite;
+}
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.15);
+    }
+}
+.final-content h2 {
+    margin: 15px 0;
+    color: var(--pink);
+    font-size: 30px;
+}
+.gift-button {
+    margin-top: 25px;
+    padding: 17px 30px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(135deg, #ff416c, #c9184a);
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: 0 10px 30px #ff416c55;
+    transition: 0.3s;
+}
+.gift-button:hover {
+    transform: scale(1.08);
+}
+.gift-message {
+    margin-top: 30px;
+    padding: 25px;
+    border: 1px solid #ffb6c955;
+    border-radius: 25px;
+    background: #ffffff12;
+    animation: appear 0.8s ease;
+}
+.gift-message h2 {
+    color: var(--gold);
+}
+.gift-message p {
+    line-height: 1.8;
+}
+.signature {
+    margin-top: 20px;
+    color: var(--pink);
+    font-weight: 900;
+}
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+.main-footer {
+    position: relative;
+    padding: 20px;
+    background: #050f22;
+    text-align: center;
+    color: #a8c5e5;
+    font-size: 12px;
+}
+/* =========================================
+   ANIMACIÓN DE CAJA MISTERIOSA
+========================================= */
+.box-scene {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.box-eyebrow {
+    color: #ffdc83;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+.box-scene h2 {
+    font-size: clamp(30px, 5vw, 45px);
+    margin: 20px 0 10px;
+    color: white;
+}
+.box-subtitle {
+    color: #f5ddeb;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.box-hint {
+    margin-top: 30px;
+    color: #ffdf9a;
+    font-size: 15px;
+    font-weight: 700;
+    animation: hintPulse 1.5s infinite;
+}
+@keyframes hintPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+/* CAJA */
+.gift-box {
+    position: relative;
+    width: 220px;
+    height: 200px;
+    margin: 100px auto 20px;
+    transform-style: preserve-3d;
+}
+.box-body {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 200px;
+    height: 130px;
+    background: linear-gradient(135deg, #ff477e, #c9184a);
+    border: 3px solid #ffb4ca;
+    border-radius: 8px 8px 15px 15px;
+    box-shadow: 0 15px 35px #0006;
+    z-index: 2;
+}
+.box-ribbon {
+    position: absolute;
+    left: 80px;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(90deg, #ffe58a, #fff1bd, #e7b74d);
+}
+.box-front-heart {
+    position: absolute;
+    top: 45px;
+    left: 82px;
+    font-size: 35px;
+    color: #fff1bd;
+    z-index: 3;
+}
+.box-lid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 55px;
+    border: 3px solid #ffb4ca;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #ff79a2, #d51c55);
+    z-index: 4;
+    transform-origin: left bottom;
+    transition: transform 1.2s ease;
+    box-shadow: 0 8px 20px #0005;
+}
+.lid-ribbon {
+    position: absolute;
+    left: 92px;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(90deg, #ffe58a, #fff1bd, #e7b74d);
+}
+.lid-bow {
+    position: absolute;
+    top: -42px;
+    left: 75px;
+    font-size: 55px;
+}
+.box-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: -40px;
+    top: -70px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffdf8b55, transparent 70%);
+    opacity: 0.5;
+    z-index: 1;
+    transition: 1s;
+}
+.box-light {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: -15px;
+    top: -110px;
+    background: radial-gradient(circle, #fff6c9, #ffcf6c55 35%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.2);
+    z-index: 5;
+    pointer-events: none;
+}
+/* MOVIMIENTO DE LA CAJA */
+.gift-box.shaking {
+    animation: boxShake 0.5s ease-in-out 3;
+}
+@keyframes boxShake {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    20% {
+        transform: rotate(-7deg);
+    }
+    40% {
+        transform: rotate(7deg);
+    }
+    60% {
+        transform: rotate(-5deg);
+    }
+    80% {
+        transform: rotate(5deg);
+    }
+}
+/* APERTURA */
+.gift-box.opening .box-lid {
+    transform: translate(-25px, -100px) rotate(-35deg);
+}
+.gift-box.opening .box-light {
+    animation: magicLight 1.3s ease forwards;
+}
+.gift-box.opening .box-glow {
+    opacity: 1;
+    transform: scale(1.4);
+}
+@keyframes magicLight {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2.5);
+    }
+}
+/* RESULTADO */
+@keyframes surpriseArrival {
+    from {
+        opacity: 0;
+        transform: scale(0.65) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+/* =========================================
+   DISEÑO RESPONSIVE
+========================================= */
+@media (max-width: 850px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .surprise-card {
+        min-height: 200px;
+    }
+    #reveal .reveal-content {
+        max-width: 650px;
+    }
+}
+@media (max-width: 500px) {
+    .main-header {
+        padding: 15px 5%;
+    }
+    .logo {
+        font-size: 19px;
+    }
+    .music-button {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+    .screen {
+        padding: 100px 15px 60px;
+    }
+    .welcome-image {
+        width: 190px;
+        height: 190px;
+    }
+    .welcome-description {
+        font-size: 15px;
+    }
+    .cards-container {
+        gap: 10px;
+    }
+    .surprise-card {
+        min-height: 175px;
+        padding: 10px;
+    }
+    .card-image {
+        height: 85px;
+    }
+    .surprise-card .card-label {
+        font-size: 10px;
+    }
+    #reveal.screen.active {
+        align-items: flex-start;
+        padding: 85px 12px 35px;
+    }
+    #reveal .reveal-content {
+        padding: 22px 16px;
+        border-radius: 24px;
+    }
+    .world-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        padding: 7px 12px;
+        margin-bottom: 10px;
+    }
+    .surprise-type {
+        font-size: 11px;
+        padding: 8px 16px;
+        margin-bottom: 15px;
+    }
+    .reveal-content h2 {
+        font-size: clamp(25px, 7vw, 32px);
+        margin-bottom: 17px;
+    }
+    .reveal-image {
+        width: min(290px, 100%);
+        height: 205px;
+        margin-bottom: 18px;
+        border-radius: 20px;
+    }
+    #revealDescription {
+        padding: 16px;
+        font-size: 15px;
+        line-height: 1.75;
+        border-radius: 16px;
+    }
+    .reveal-extra {
+        margin: 15px auto 20px;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 1.7;
+        border-radius: 16px;
+    }
+    #backButton {
+        width: 100%;
+        min-width: 0;
+        padding: 15px 18px;
+        font-size: 14px;
+    }
+    .final-image {
+        height: 190px;
+    }
+    .gift-box {
+        transform: scale(0.85);
+        margin: 75px auto 0;
+    }
+    .gift-box.shaking {
+        animation: boxShakeMobile 0.5s ease-in-out 3;
+    }
+    @keyframes boxShakeMobile {
+        0%, 100% {
+            transform: scale(0.85) rotate(0);
+        }
+        20% {
+            transform: scale(0.85) rotate(-7deg);
+        }
+        40% {
+            transform: scale(0.85) rotate(7deg);
+        }
+        60% {
+            transform: scale(0.85) rotate(-5deg);
+        }
+        80% {
+            transform: scale(0.85) rotate(5deg);
+        }
+    }
+}
+
+/* =========================================
+   LOGIN - ACCESO EXCLUSIVO PARA JHUSARA
+========================================= */
+#login {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    padding: 120px 20px 80px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 20%, #ff8db555, transparent 35%),
+        radial-gradient(circle at 85% 80%, #42c5ef55, transparent 35%),
+        linear-gradient(135deg, #071c3b, #252052, #702d61);
+}
+#login::before,
+#login::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(75px);
+    opacity: 0.35;
+    z-index: -1;
+}
+#login::before {
+    top: -120px;
+    left: -100px;
+    background: #ff70a6;
+}
+#login::after {
+    bottom: -150px;
+    right: -100px;
+    background: #42c5ef;
+}
+.login-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+.login-heart,
+.login-star {
+    position: absolute;
+    animation: loginFloat 6s ease-in-out infinite;
+}
+.login-heart {
+    color: #ff9cbd;
+    opacity: 0.35;
+    text-shadow: 0 0 20px #ff8db5;
+}
+.heart-1 {
+    top: 20%;
+    left: 12%;
+    font-size: 45px;
+}
+.heart-2 {
+    top: 65%;
+    right: 13%;
+    font-size: 65px;
+    animation-delay: 2s;
+}
+.heart-3 {
+    bottom: 12%;
+    left: 25%;
+    font-size: 30px;
+    animation-delay: 1s;
+}
+.login-star {
+    color: #ffe7a3;
+    font-size: 35px;
+    opacity: 0.65;
+}
+.star-1 {
+    top: 25%;
+    right: 20%;
+}
+.star-2 {
+    bottom: 25%;
+    right: 30%;
+    animation-delay: 1.5s;
+}
+.star-3 {
+    top: 70%;
+    left: 12%;
+    animation-delay: 3s;
+}
+@keyframes loginFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-25px) rotate(12deg);
+    }
+}
+.login-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 470px;
+    margin: auto;
+    padding: 40px 38px;
+    text-align: center;
+    border: 1px solid #ffffff55;
+    border-radius: 32px;
+    background: linear-gradient(145deg, #ffffff25, #ffffff0c);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 25px 70px #0005, inset 0 1px 0 #ffffff45;
+    animation: loginArrival 0.9s ease both;
+}
+@keyframes loginArrival {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.login-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 22px;
+    border: 1px solid #ffffff70;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff8db5, #d94e91);
+    box-shadow: 0 10px 35px #ff5c9b55;
+    font-size: 42px;
+    animation: heartbeat 1.8s infinite;
+}
+.login-eyebrow {
+    display: block;
+    color: #ffcfdf;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+.login-content h1 {
+    color: white;
+    font-size: clamp(27px, 5vw, 36px);
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px #0004;
+}
+.login-content h1 span {
+    display: block;
+    color: #ffb6d0;
+}
+.login-description {
+    max-width: 340px;
+    margin: 0 auto 30px;
+    color: #e8e6f5;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.login-form {
+    width: 100%;
+    text-align: left;
+}
+.login-form label {
+    display: block;
+    margin: 18px 0 9px;
+    color: #ffe0ec;
+    font-size: 13px;
+    font-weight: 800;
+}
+.login-input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 55px;
+    padding: 0 15px;
+    border: 1px solid #ffffff55;
+    border-radius: 15px;
+    background: #071c3b55;
+    transition: 0.3s;
+}
+.login-input-group:focus-within {
+    border-color: #ff9fc2;
+    background: #071c3b80;
+    box-shadow: 0 0 0 3px #ff8db525;
+}
+.login-input-group > span {
+    font-size: 19px;
+}
+.login-input-group input {
+    width: 100%;
+    min-width: 0;
+    padding: 16px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+}
+.login-input-group input::placeholder {
+    color: #c3bfd5;
+}
+.password-toggle {
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+.login-button {
+    width: 100%;
+    min-height: 55px;
+    margin-top: 25px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffb4ce, #ff669c, #d94e91);
+    color: #511532;
+    font-size: 15px;
+    font-weight: 900;
+    box-shadow: 0 10px 30px #ff5c9b45;
+    transition: 0.3s;
+}
+.login-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px #ff5c9b70;
+}
+.login-button:active {
+    transform: scale(0.97);
+}
+.login-error {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #ff8d9d80;
+    border-radius: 12px;
+    background: #e8325730;
+    color: #ffd8df;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    animation: appear 0.3s ease;
+}
+.login-footer {
+    margin-top: 25px;
+    color: #e8cddd;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+@media (max-width: 500px) {
+    #login {
+        padding: 95px 15px 65px;
+    }
+    .login-content {
+        max-width: 420px;
+        padding: 32px 22px;
+        border-radius: 25px;
+    }
+    .login-icon {
+        width: 72px;
+        height: 72px;
+        font-size: 35px;
+    }
+    .login-description {
+        font-size: 13px;
+    }
+}
